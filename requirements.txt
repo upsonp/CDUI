@@ -1,0 +1,5 @@
+PyQt6==6.8.0
+sqlalchemy==2.0.36
+python-environ==0.4.54
+# cx_oracle==8.3.0
+oracledb==2.5.1
