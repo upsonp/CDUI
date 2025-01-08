@@ -1,0 +1,5 @@
+# pycharm IDE config
+.idea
+
+# application enviornment variables
+.env
