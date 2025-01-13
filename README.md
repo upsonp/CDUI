@@ -11,7 +11,7 @@
 1. Change Directory into the new cloned directory: ```cd CDUI```  
 1. Create a new Virtual Enviornment: ```python -m venv env```  
 1. Activate the new Virtual Enviornment: ```env\Scripts\activate```  
-1. Update libraries based on the projects requierments: ```python -m pip install -r requierments.txt```  
+1. Update libraries based on the projects requierments: ```python -m pip install -r requirements.txt```  
 
 You can test if the install worked correctly by starting the application with ```python manage.py cdui``` if the install worked the application will open, but it's not ready yet to connect to a database. Close the application and setup the enviornment.
 

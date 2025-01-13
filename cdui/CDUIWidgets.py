@@ -33,7 +33,7 @@ class CDUIMainWindow(QWidget):
         btn_process = QPushButton("Process State", parent=self)
         btn_process.clicked.connect(lambda: get_data(self.table, cruise_models.ProcessState))
 
-        btn_cruise = QPushButton("Curise", parent=self)
+        btn_cruise = QPushButton("Cruise", parent=self)
         btn_cruise.clicked.connect(lambda: get_data(self.table, cruise_models.Cruise))
 
         btn_layout.addWidget(btn_chief)
