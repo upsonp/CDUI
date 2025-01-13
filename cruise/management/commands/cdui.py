@@ -4,7 +4,7 @@ from cdui.CDUIWidgets import CDUIMainWindow
 from PyQt6.QtWidgets import QApplication
 from django.core.management.base import BaseCommand
 
-logger = logging.getLogger('cdui')
+logger = logging.getLogger('django')
 
 
 class Command(BaseCommand):

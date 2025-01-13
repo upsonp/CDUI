@@ -171,18 +171,13 @@ LOGGERS = (
     {
         "django": {
             "handlers": ["console", "file_handler"],
-            "level": "INFO",
+            "level": "DEBUG",
             "propagate": True,
         },
         "django.request": {
             "handlers": ['file_handler'],
             "level": "ERROR",
             "propagate": True,
-        },
-        "cdui": {
-            "handlers": ["console", "file_handler"],
-            "level": "DEBUG",
-            "propagate": True
         },
     },
 )

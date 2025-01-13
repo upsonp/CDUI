@@ -4,7 +4,7 @@ from cruise import models as cruise_models
 
 import logging
 
-logger = logging.getLogger('cdui')
+logger = logging.getLogger('django')
 
 
 class CDUIMainWindow(QWidget):
@@ -36,11 +36,15 @@ class CDUIMainWindow(QWidget):
         btn_cruise = QPushButton("Cruise", parent=self)
         btn_cruise.clicked.connect(lambda: get_data(self.table, cruise_models.Cruise))
 
+        btn_data = QPushButton("Data", parent=self)
+        btn_data.clicked.connect(lambda: get_data(self.table, cruise_models.Data))
+
         btn_layout.addWidget(btn_chief)
         btn_layout.addWidget(btn_data_type)
         btn_layout.addWidget(btn_delivery)
         btn_layout.addWidget(btn_process)
         btn_layout.addWidget(btn_cruise)
+        btn_layout.addWidget(btn_data)
 
         layout.addWidget(self.table)
         layout.addLayout(btn_layout)
@@ -67,13 +71,15 @@ def getFieldName(field):
 
 
 def get_data(table: CDUITable, model: any):
-    chiefs = model.objects.using('cruise_database').all()
+    logger.debug("Getting rows for model: %s", model)
+    table_rows = model.objects.using('cruise_database').all()
 
+    logger.debug("Rows: %d", len(table_rows))
     fields = model._meta.fields
     table.setHeader([getFieldName(field) for field in fields])
-    table.setRowCount(len(chiefs))
+    table.setRowCount(len(table_rows))
 
-    for row_number, row in enumerate(chiefs):
+    for row_number, row in enumerate(table_rows):
         for col, value in enumerate(fields):
             table.setItem(row_number, col, QTableWidgetItem(str(getattr(row, value.name)).strip()))
 
